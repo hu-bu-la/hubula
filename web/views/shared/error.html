@@ -1,0 +1,17 @@
+﻿{{ define "shared/error-head" }}
+    <title>{{.Err.status}} - error </title>
+    <style type="text/css">
+        body {
+            background: #ffffff;
+        }
+    </style>
+{{ end }}
+
+<h1 >Error.</h1>
+<h2 >An error occurred while processing your request.</h2>
+
+app{{.Err.app}}<br>
+status{{.Err.status}}<br>
+code{{.Err.code}}<br>
+message{{.Err.message}}<br>
+trace{{.Err.trace}}<br>

@@ -1,0 +1,23 @@
+﻿{{ define "fronted/pc/www/all-head" }}
+    <title>{{.Title}} - 首页信息</title>
+    <style type="text/css">
+        body {
+            background: #ffffff;
+        }
+    </style>
+{{ end }}
+
+<ul class="pagination">
+    共{{.pagings.TotalCount}}条记录 共记{{.pagings.TotalPage}} 页 当前页 {{.pagings.Page}}
+    <li>s
+        <a href="?page=1&pageSize={{$.pagings.PageSize}}" class="not">«首页</a>
+    </li>
+    {{range $k,$v:=.pagings.Pages}}
+        <li>
+            <a href="?page={{$v}}&pageSize={{$.pagings.PageSize}}" class="{{if eq $v $.pagings.Page}}active{{end}}">{{$v}}</a>
+        </li>
+    {{end}}
+    <li>
+        <a href="?page={{.pagings.LastPage}}&pageSize={{$.pagings.PageSize}}">最后一页»</a>
+    </li>
+</ul>
